@@ -47,3 +47,8 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- "Smart gaps": no gaps when only one tiled window or one fullscreen window lives on
+-- the workspace. See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })

@@ -4,11 +4,11 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
--- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
-hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
-hl.exec_cmd("awww-daemon")
-hl.exec_cmd("waybar & hyprpaper")
+-- awww-daemon powers the wallpapers (animated gifs included).
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("awww-daemon")
+    hl.exec_cmd("waybar &")
+
+    -- The daemon needs a beat to come up before it can restore the last image
+    hl.exec_cmd("sleep 1 && awww restore")
 end)

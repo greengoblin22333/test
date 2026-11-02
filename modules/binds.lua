@@ -2,7 +2,6 @@
 ---- MY PROGRAMS ----
 ---------------------
 
--- Set programs that you use
 local terminal    = "kitty"
 local fileManager = "dolphin"
 local menu        = "hyprlauncher"
@@ -48,6 +47,13 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-co
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+-- Snap back to the previously used workspace
+hl.bind(mainMod .. " + grave", hl.dsp.focus({ workspace = "previous" }))
+
+-- Sail the active window to the previous / next workspace
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ workspace = "e+1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
